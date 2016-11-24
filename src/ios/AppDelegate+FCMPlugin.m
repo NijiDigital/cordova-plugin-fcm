@@ -62,7 +62,7 @@ static NSData *lastPush;
     NSDictionary *userInfoMutable = [userInfo mutableCopy];
     
     if (application.applicationState != UIApplicationStateActive) {
-        NSLog(@"New method with push callback: %@", userInfo);
+        NSLog(@"Data of the push notification received");
         
         [userInfoMutable setValue:@(YES) forKey:@"wasTapped"];
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userInfoMutable
@@ -85,8 +85,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     // Print message ID.
     NSLog(@"Message ID: %@", userInfo[@"gcm.message_id"]);
 
-    // Pring full message.
-    NSLog(@"%@", userInfo);
+    // Print full message.
+    NSLog(@"Data of the push notification received");
     NSError *error;
     
     NSDictionary *userInfoMutable = [userInfo mutableCopy];
